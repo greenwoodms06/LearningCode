@@ -18,10 +18,11 @@ set(SOURCE_FILES src/MathFunctions.cpp)
 add_library(MathFunctions SHARED ${SOURCE_FILES})
 
 # Set the name and properties of the shared library
-set_target_properties(MathFunctions PROPERTIES OUTPUT_NAME "MathFunctions" PREFIX "")
+set_target_properties(MathFunctions PROPERTIES OUTPUT_NAME "MathFunctions" PREFIX "" WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
-# Copy the DLL to the output directory
+# Copy the DLL and LIB to the output directory
 add_custom_command(TARGET MathFunctions POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
     COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:MathFunctions> ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
+    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_LINKER_FILE:MathFunctions> ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
 )
