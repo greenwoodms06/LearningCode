@@ -4,15 +4,19 @@
 #include <vtkDataReader.h>
 #include <vtkDataSetReader.h>
 #include <vtkDataSet.h>
+#include <vtkPointData.h>
+#include <vtkCellData.h>
+/*
 //#include <vtkPolyData.h>
 #include <vtkPointInterpolator.h>
 #include <vtkFloatArray.h>
 #include <vtkLinearKernel.h>
-#include <vtkPointData.h>
-#include <vtkCellData.h>
+
 #include <vtkPoints.h>
 #include <vtkLineSource.h>
 #include <vtkPointSource.h>
+*/
+#include <iostream>
 namespace vtk {
 
     bool ReadData(const std::string& filename)
@@ -30,6 +34,10 @@ namespace vtk {
         vtkSmartPointer<vtkCellData> cellData = dataSet->GetCellData();
         const char* name = cellData->GetArrayName(0);
 
+        std::string myString = name;
+        std::cout << myString << std::endl;
+        system("pause");
+        /*
         vtkNew<vtkPoints> points;
         points->InsertNextPoint(1.0, 2.0, 3.0);
         vtkNew<vtkPolyData> polyData;
@@ -74,9 +82,10 @@ namespace vtk {
 
         //pointInterpolator->SetSourcePosition(x, y, z);
         //pointInterpolator->Interpolate();
+        */
         return 0;
     }
-
+    /*
     double InterpolateData(const std::string& filename, double x, double y, double z)
     {
         // Load the legacy VTK file
@@ -105,5 +114,5 @@ namespace vtk {
 
         //return value[0];
     }
-
+    */
 } // namespace vtkutilities

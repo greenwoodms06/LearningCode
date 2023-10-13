@@ -6,7 +6,7 @@
 namespace vtk {
 
     bool ReadData(const std::string& filename);
-    double InterpolateData(const std::string& filename, double x, double y, double z);
+    //double InterpolateData(const std::string& filename, double x, double y, double z);
 
 } // namespace vtkUtilities
 

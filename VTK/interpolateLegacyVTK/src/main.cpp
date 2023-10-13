@@ -14,6 +14,7 @@ int main()
     
     bool reader = vtk::ReadData(filename);
 
+    /*
     double interpolatedValue = vtk::InterpolateData(filename, x, y, z);
 
     if (std::isnan(interpolatedValue)) {
@@ -25,6 +26,6 @@ int main()
         // Handle the interpolated value
         std::cout << "Interpolated value: " << interpolatedValue << std::endl;
     }
-
+    */
     return 0;
 }
